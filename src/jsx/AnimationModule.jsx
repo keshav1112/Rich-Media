@@ -1,7 +1,7 @@
 
 export default class AnimationModule {
     constructor() {
-        build();
+        this.build();
     }
 
     build() {
@@ -46,6 +46,7 @@ export default class AnimationModule {
             .to(windowImg, 2, { scale: 2, ease: Expo.easeIn }, 'frame3')
             .to([bg, bg_planet], 4.5, { scale: 1, x: -30, y: 5, rotateZ: 0.1, ease: Expo.easeInOut}, 'frame3')
             .to('.sparkles', 4.5, { scale: 1, y: -15, x: 0, opacity: 1, ease: Expo.easeInOut}, 'frame3')
+            .to('.sparkles', 15, { opacity: 0, ease: Expo.easeInOut}, 'frame3')
             .staggerTo('.bigcopy', .6, { opacity: 0, y: -20, ease: Power1.easeIn}, .2, 'frame3+=.5')
             .to('.shootingStarContainer', .8, { rotation: -50, ease: Expo.easeOut }, 'frame3+=2.5')
             .add('frame4', 10.4)
@@ -74,7 +75,7 @@ export default class AnimationModule {
 
     // TODO: STOP THE ANIMATION
     stop() {
-
+        this.mainTimeline.pause();
     }
 
 }
